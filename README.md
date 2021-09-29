@@ -1,5 +1,5 @@
 # Creepy_Clock
-Creepy Doll head clock with moving features
+Creepy Doll head clock with moving features using Arduino Nano (ATmega328P)
 
 /* Creepy Clock
  *  using an RTC(DS3231), some NeoPixels, and some servos 
