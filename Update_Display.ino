@@ -1,5 +1,5 @@
 /*
- * UpdateDisplay  - Updates the ssd1307 display using u8g2 library
+ * UpdateDisplay  - Updates the ssd1306 display using u8g2 library
  * 
  * DAP - 09-17-2021 initital rev
  * DAP - 09-28-2021 Added RTC, Pixel and Position information
