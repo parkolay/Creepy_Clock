@@ -1,3 +1,18 @@
+/*
+ * UpdateServo  - Updates the servos postion 
+ * 
+ * DAP - 09-17-2021 Initial rev
+ * DAP - 09-28-2021 Moved "stuff" around
+ */
+ 
+void UpdateServo()
+{
+  UpdatePos();
+  myservo1.write(pos1);
+  myservo2.write(pos2);
+  myservo3.write(pos3);
+}//end void UpdateServo()
+
 void UpdatePos()
 {
     //map the time varible range to the servo position range
@@ -23,10 +38,3 @@ void UpdatePos()
         pos2 *= -1;
       }
 }//end void UpdatePos()
-
-void UpdateServo()
-{
-  myservo1.write(pos1);
-  myservo2.write(pos2);
-  myservo3.write(pos3);
-}//end void UpdateServo()
