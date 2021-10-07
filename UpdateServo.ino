@@ -7,20 +7,36 @@
  
 void UpdateServo()
 {
-  UpdatePos();
+  //use BUTTON_2 with internal pullup to determine which servo mapping to use
+
+  if (PosMapButton == HIGH) //this is the default state even if there is no switch present 
+  {
+    UpdateSkullPosition();    
+  }
+  else
+  {
+    UpdatePosition();   
+  }
+
   myservo1.write(pos1);
   myservo2.write(pos2);
   myservo3.write(pos3);
+  myservo4.write(pos4);
+  
 }//end void UpdateServo()
 
-void UpdatePos()
+void UpdatePosition()
 {
-    //map the time varible range to the servo position range
-//    pos1 = map(seconds, 0, 59, 0, 360); //another way to do the same thing
+/*
+ *  // map the time varible range to the servo position range
+    // pos1 = map(seconds, 0, 59, 0, 360); //another way to do the same thing
+
+ */
     pos1 = map(seconds, 0, 59, -180, 180);//see notes below
     pos2 = map(minutes, 0, 59, -180, 180);
     pos3 = map(hours,   0, 23, 0, 180);  
-
+    pos4 = map(jaw, 0,1023, 0 ,180);
+    
       //this will handle the backward second sweep
       //it also makes the movement faster, if that's what is wanted
       //same back and forth as above but "simpler"
@@ -38,3 +54,46 @@ void UpdatePos()
         pos2 *= -1;
       }
 }//end void UpdatePos()
+
+void UpdateSkullPosition()
+{
+/*
+// remapped for the Skull gimble based on the following results;
+ *  //remap the analog read values to servo position values
+    //these values were mapped using values read from three axis joystick
+    //to get these values mapped properly they will need to be assigned limits after the midpoint evaluation
+    pos1 = map(pan,  45, 975, 32, 137); //to be used as hour?  52 shold be around the midpoint
+    pos2 = map(tilt, 45, 950, 62, 175);   //to be used as minute? 56 shold be around the midpoint
+    pos3 = map(swing,319, 706, 50, 137);    //to be used as seconds? 43 shold be around the midpoint
+    pos4 = map(jaw, ?,?,?,?) --> doesn't exist, but maybe it can be every 30 minutes like the regulator clocks?
+ */
+
+      if (seconds <30)
+      {
+        pos1 = map(seconds, 0,59,32,137);
+      }
+      else if (seconds > 29)
+      {
+        pos1 = map(seconds, 0,59,137,32);
+      }
+
+      if (minutes <30)
+      {
+        pos2 = map(minutes, 0,59,62,175);
+      }
+      else if (minutes > 29)
+      {
+        pos2 = map(minutes, 0,59,175,62);
+      }
+      
+      if (hours <13)
+      {
+        pos3 = map(hours, 0,23,50,137);
+      }
+      else if (hours > 12)
+      {
+        pos3 = map(hours, 0,23,137,50);
+      }
+      
+      pos4 = map(jaw, 0,1023, 0 ,180);
+}//end void UpdateSkullPosition()
