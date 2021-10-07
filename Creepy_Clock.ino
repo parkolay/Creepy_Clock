@@ -97,17 +97,17 @@ void setup()
 
 void loop() 
 {
-      UpdateTime();       //this will jump to update the time
-      UpdateServo();      //this will jump to update the servo postion
-      UpdateSerial();     //this will jump to update the serial (debug) output
-      UpdateNeoPixel();   //this will jump to update the pixel colors
-      u8g2.firstPage();
-      //delay(100); //there is already enough going on 
-      do 
-      {
-        UpdateDisplay();  //this will jump to update the display
-      } 
-      while ( u8g2.nextPage() );
-      
+  UpdateAnalogs();    //this will jump to update the analog inputs    
+  UpdateTime();       //this will jump to update the time
+  UpdateServo();      //this will jump to update the servo postion
+  UpdateSerial();     //this will jump to update the serial (debug) output
+  UpdateNeoPixel();   //this will jump to update the pixel colors
+  u8g2.firstPage();
+  //delay(100); //there is already enough going on 
+  do 
+  {
+    UpdateDisplay();  //this will jump to update the display
+  } 
+  while ( u8g2.nextPage() );    
 
 } //end void loop() 
