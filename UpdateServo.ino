@@ -94,6 +94,6 @@ void UpdateSkullPosition()
       {
         pos3 = map(hours, 0,23,137,50);
       }
-      
+// the "real" value will need to be worked out for this application, the value of 180 was used as a place marker      
       pos4 = map(jaw, 0,1023, 0 ,180);
 }//end void UpdateSkullPosition()
