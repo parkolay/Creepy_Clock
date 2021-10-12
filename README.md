@@ -1,5 +1,7 @@
 # Creepy_Clock
 Creepy Doll head clock with moving features using Arduino Nano (ATmega328P)
+//this ended up being a skull instead of a disembodied doll head
+//I used https://www.thingiverse.com/thing:3803762 as my 3d model base
 
 /* Creepy Clock
  *  using an RTC(DS3231), some NeoPixels, and some servos 
