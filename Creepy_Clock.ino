@@ -52,7 +52,7 @@ int years   = 0;  // varible to store the hours from clock
 int pos1    = 0;  // variable to store the servo position 1
 int pos2    = 0;  // variable to store the servo position 2
 int pos3    = 0;  // variable to store the servo position 3
-int pos4    = 0;  // variable to store the servo position 3
+int pos4    = 0;  // variable to store the servo position 4
 int jaw     = 0;  // variable to read the value from the analog pin
 
 const int Joystick_JAW = 3;  // analog pin used to connect the 'Jaw' slider  --> "Jaw"
@@ -66,17 +66,17 @@ int PixColorRed   = 0;  //varible to control the Red portion of the pixel
 int PixColorGreen = 0;  //varible to control the Green portion of the pixel
 int PixColorBlue  = 0;  //varible to control the Blue portion of the pixel
 
-//this didn't work as well as I had hoped, so it was removed
+//this didn't work as well as I had hoped for this application, so it was removed from here
 //char TimeBuffer [100];  //generate an array for the time display
 //char TimeReadout [20];
 
 void setup() 
 {
   Wire.begin();         //start the I2C, this is also most likely done inside u8g2
-  myservo1.attach(8);   // attaches the servo on pin 9 to the servo object
-  myservo2.attach(9);  // attaches the servo on pin 10 to the servo object
-  myservo3.attach(10);  // attaches the servo on pin 11 to the servo object
-  myservo3.attach(11);  // attaches the servo on pin 11 to the servo object
+  myservo1.attach(8);   // attaches the servo on pin 8 to the servo object
+  myservo2.attach(9);  // attaches the servo on pin 9 to the servo object
+  myservo3.attach(10);  // attaches the servo on pin 10 to the servo object
+  myservo4.attach(11);  // attaches the servo on pin 11 to the servo object
   Serial.begin(57600);  // open a serial connection
   u8g2.begin();         //start the display
   
@@ -97,17 +97,17 @@ void setup()
 
 void loop() 
 {
-  UpdateAnalogs();    //this will jump to update the analog inputs    
-  UpdateTime();       //this will jump to update the time
-  UpdateServo();      //this will jump to update the servo postion
-  UpdateSerial();     //this will jump to update the serial (debug) output
-  UpdateNeoPixel();   //this will jump to update the pixel colors
-  u8g2.firstPage();
-  //delay(100); //there is already enough going on 
-  do 
-  {
-    UpdateDisplay();  //this will jump to update the display
-  } 
-  while ( u8g2.nextPage() );    
+      UpdateTime();       //this will jump to update the time
+      UpdateServo();      //this will jump to update the servo postion
+      UpdateSerial();     //this will jump to update the serial (debug) output
+      UpdateNeoPixel();   //this will jump to update the pixel colors
+      u8g2.firstPage();
+      //delay(100); //there is already enough going on 
+      do 
+      {
+        UpdateDisplay();  //this will jump to update the display
+      } 
+      while ( u8g2.nextPage() );
+      
 
 } //end void loop() 
