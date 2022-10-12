@@ -1,4 +1,4 @@
-*
+/*
  * UpdateTime - Reads the RTC and set multiple varibles for use in other parts of the code
  * 
  * DAP - 09-17-2021 Initial rev
