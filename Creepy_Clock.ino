@@ -2,6 +2,9 @@
  *  using an RTC(DS3231), some NeoPixels, and some servos 
  *  make a clock that the head and eyes move and light up acording to the time
  *  or something like that...?
+ * From the ReadMe doc for Servo control " use of the library disables `analogWrite()` 
+ * (PWM) functionality on pins 9 and 10, whether or not there is a Servo on those pins."
+ * so might as well use those for servos...
  *  LOTS of code copied from multiple examples
  *  09-29-2021
  *  
