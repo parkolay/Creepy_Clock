@@ -68,6 +68,14 @@ void GetLine2()
 {
     u8g2.setFont(u8g2_font_ncenB08_tr);
     u8g2.setCursor(0,24);
+    u8g2.print(Rxdata.Rx_Temperature);
+    u8g2.print(" *f ");
+    u8g2.setCursor(64,24);
+    u8g2.print(Rxdata.Rx_Humidity);
+    u8g2.print(" %RH ");
+
+
+
     //u8g2.print("012345678901234567890"); 
 
 }
@@ -75,34 +83,40 @@ void GetLine2()
 void GetLine3()
 {
     u8g2.setCursor(0,34);
-    u8g2.print("Pix ");
-    u8g2.print("R ");
-    u8g2.print(PixColorRed);
-    u8g2.print(" G ");
-    u8g2.print(PixColorGreen);
-    u8g2.print(" B ");
-    u8g2.print(PixColorBlue);
+    u8g2.print(Rxdata.Rx_Pressure);
+    u8g2.print(" kPa ");
+    u8g2.setCursor(64,34);
+    u8g2.print(Rxdata.Rx_DewPoint);
+    u8g2.print(" *f DP");
 }
 
 void GetLine4()
 {
     u8g2.setCursor(0,44);
-    u8g2.print("Position 1 Value ");
-    u8g2.print(pos1); 
+    u8g2.print("TestVar ");
+    u8g2.print(TestTemp);
+
 }
 
 void GetLine5()
 {
-    
     u8g2.setCursor(0,54);
-    u8g2.print("Position 2 Value ");
-    u8g2.print(pos2); 
+    u8g2.print("RGB ");
+    u8g2.print(PixColorRed);
+    u8g2.print(",");
+    u8g2.print(PixColorGreen);
+    u8g2.print(",");
+    u8g2.print(PixColorBlue); 
 }
 
 void GetLine6()
 {
     u8g2.setCursor(0,64);
-    u8g2.print("Position 3 Value ");
+    u8g2.print("Pos Val ");
+    u8g2.print(pos1);
+    u8g2.print(",");
+    u8g2.print(pos2); 
+    u8g2.print(",");
     u8g2.print(pos3);
 }
 
