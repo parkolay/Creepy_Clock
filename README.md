@@ -34,7 +34,7 @@ Servo myservo2;  // TILT  create servo object to control a servo
 Servo myservo3;  // SWING create servo object to control a servo
 Servo myservo4;  // JAW   create servo object to control the 'jaw' servo
 
-  "use of the library disables `analogWrite()` (PWM) functionality on pins 9 and 10, whether or not there is a Servo on those pins."
+  "use of the [servo] library disables `analogWrite()` (PWM) functionality on pins 9 and 10, whether or not there is a Servo on those pins."
   So use pins 9 && 10 when using Servos...
 
 Using library Wire at version 1.0 in folder: C:\Users\XXXXX\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.3\libraries\Wire 
