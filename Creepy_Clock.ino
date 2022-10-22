@@ -1,6 +1,6 @@
 /* Creepy Clock
  *  using an RTC(DS3231), some NeoPixels, and some servos 
- *  make a clock that the head moves acording to the time
+ *  make a clock that the head moves according to the time
  *  eyes light up according to RxData
  *  Display values on SSD1306
  *  LOTS of code copied from multiple examples
@@ -23,7 +23,7 @@
  *   
  *  
  *  DAP - 09-17-2021 initial rev
- *  DAP - 09-28-2021 Added Pixels and  more time varibles
+ *  DAP - 09-28-2021 Added Pixels and  more time variables
  *  DAP - 10-15-2022 Added RxData to determine "eye" color 
 */
 
@@ -80,12 +80,12 @@ Rx_teststruct Rxdata;
 
 const int Joystick_JAW = 3;  // analog pin used to connect the 'Jaw' slider  --> "Jaw"
 
-int seconds = 0;  // varible to store the seconds from clock
-int minutes = 0;  // varible to store the minutes from clock
-int hours   = 0;  // varible to store the hours from clock
-int days    = 0;  // varible to store the seconds from clock
-int months  = 0;  // varible to store the minutes from clock
-int years   = 0;  // varible to store the hours from clock
+int seconds = 0;  // variable to store the seconds from clock
+int minutes = 0;  // variable to store the minutes from clock
+int hours   = 0;  // variable to store the hours from clock
+int days    = 0;  // variable to store the seconds from clock
+int months  = 0;  // variable to store the minutes from clock
+int years   = 0;  // variable to store the hours from clock
 
 int PosMapButton = 0;
 
@@ -137,7 +137,7 @@ void setup()
 void loop() 
 {
       UpdateTime();       //this will jump to update the time
-      UpdateServo();      //this will jump to update the servo postion
+      UpdateServo();      //this will jump to update the servo position
       RxWireless();
       // UpdateSerial();     //this will jump to update the serial (debug) output
       UpdateNeoPixelTemp();   //this will jump to update the pixel colors
