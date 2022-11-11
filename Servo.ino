@@ -22,7 +22,7 @@ void SetupServo()
 }//end of void SetupServo()
 
 
-void UpdateServo()
+void UpdateClockServo()
 {
   //use BUTTON_2 with internal pullup to determine which servo mapping to use
 
@@ -87,29 +87,29 @@ void UpdateSkullPosition()
 
       if (seconds <30)
       {
-        pos1 = map(seconds, 0,59,32,137);
+        pos3 = map(seconds, 0,29,10,100);
       }
       else if (seconds > 29)
       {
-        pos1 = map(seconds, 0,59,137,32);
+        pos3 = map(seconds, 30,59,100,10);
       }
 
       if (minutes <30)
       {
-        pos2 = map(minutes, 0,59,62,175);
+        pos2 = map(minutes, 0,29,85,160);
       }
       else if (minutes > 29)
       {
-        pos2 = map(minutes, 0,59,175,62);
+        pos2 = map(minutes, 30,59,160,85);
       }
       
       if (hours <13)
       {
-        pos3 = map(hours, 0,23,50,137);
+        pos1 = map(hours, 0,12,20,140);
       }
       else if (hours > 12)
       {
-        pos3 = map(hours, 0,23,137,50);
+        pos1 = map(hours, 13,23,140,20);
       }
 // the "real" value will need to be worked out for this application, the value of 180 was used as a place marker      
       pos4 = map(jaw, 0,1023, 0 ,180);

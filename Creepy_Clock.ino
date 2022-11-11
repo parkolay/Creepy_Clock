@@ -30,9 +30,10 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <Servo.h>
-#include <U8g2lib.h>
+#include "U8g2lib.h"
 #include "RTClib.h"
-#include <Adafruit_NeoPixel.h>
+#include "SolarCalculator.h"
+#include "Adafruit_NeoPixel.h"
 #include "HCWireless.h"
 
 //Add a buttons for input
@@ -87,7 +88,25 @@ int days    = 0;  // variable to store the seconds from clock
 int months  = 0;  // variable to store the minutes from clock
 int years   = 0;  // variable to store the hours from clock
 
+int DSTSwitch_mode = 1;
+int DelayPeriod = 10;           //setup for using millis() instead of delay()
+unsigned long Current_Time = 0; //the "other part" of millis() (roll over around 50 days which might not work in this application)
+
+// Location
+double transit, sunrise, sunset;
+double latitude = 39.7565;
+double longitude = -77.966;
+double HoursOLight = 0;
+int utc_offset = -5;
+
+int SunRiseHour = 0;
+int SunRiseMinute = 0;
+int SunSetHour = 0;
+int SunSetMinute = 0;
+
 int PosMapButton = 0;
+
+bool DebugOn = true; //set to true for debug serial messages
 
 int ButtonState = 0;  // variable to read the value from the joystick button
 
@@ -137,7 +156,7 @@ void setup()
 void loop() 
 {
       UpdateTime();       //this will jump to update the time
-      UpdateServo();      //this will jump to update the servo position
+      UpdateClockServo();      //this will jump to update the servo position
       RxWireless();
       // UpdateSerial();     //this will jump to update the serial (debug) output
       UpdateNeoPixelTemp();   //this will jump to update the pixel colors
