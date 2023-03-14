@@ -27,9 +27,9 @@
  *  DAP - 10-15-2022 Added RxData to determine "eye" color 
 */
 
-#include <Arduino.h>
-#include <Wire.h>
-#include <Servo.h>
+#include "Arduino.h"
+#include "Wire.h"
+#include "Servo.h"
 #include "U8g2lib.h"
 #include "RTClib.h"
 #include "SolarCalculator.h"
